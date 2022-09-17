@@ -12,10 +12,11 @@ public:
         
         while(!queue.empty()){
             vector<int> actual_coord = queue.front();
+            queue.pop();
             for(int i=0; i<dirs.size(); i++){
                 r = actual_coord[0] + dirs[i][0];
                 c = actual_coord[1] + dirs[i][1];
-                if(r > 0 && r < rows && c > 0 && c < cols && grid[r][c]=='1' && !visited[r][c]){
+                if(r >= 0 && r < rows && c >= 0 && c < cols && grid[r][c]=='1' && !visited[r][c]){
                     queue.push({r,c});
                     visited[r][c] = true;
                 }
